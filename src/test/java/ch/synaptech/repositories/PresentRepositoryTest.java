@@ -29,7 +29,7 @@ public class PresentRepositoryTest {
     }
 
     @Test
-    public void testSavePresent() {
+    public void testPresentCRUD() {
         Present present = new Present();
         present.setDescription("Xbox One");
         present.setPrice(new BigDecimal("399.99"));

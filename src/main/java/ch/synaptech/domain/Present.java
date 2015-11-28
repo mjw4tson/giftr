@@ -15,7 +15,7 @@ public class Present {
     @Version
     private Integer version;
 
-    private String productId;
+    private String presentId;
     private String description;
     private String imageUrl;
     private BigDecimal price;
@@ -28,12 +28,12 @@ public class Present {
         this.price = price;
     }
 
-    public String getProductId() {
-        return productId;
+    public String getPresentId() {
+        return presentId;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setPresentId(String presentId) {
+        this.presentId = presentId;
     }
 
     public String getDescription() {
