@@ -1,4 +1,4 @@
-package ch.synaptech.configurations;
+package ch.synaptech.configuration;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
