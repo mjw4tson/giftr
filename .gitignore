@@ -45,3 +45,17 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# JetBrains IDEs
+*.iml
+
+.idea/
+
+*.ipr
+*.iws
+
+/out/
+/target/
+mvnw
+mvnw.cmd
+/.mvn/
