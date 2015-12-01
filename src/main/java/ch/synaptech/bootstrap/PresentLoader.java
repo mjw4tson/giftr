@@ -18,6 +18,8 @@ public class PresentLoader implements ApplicationListener<ContextRefreshedEvent>
 
     private PresentRepository presentRepository;
 
+    private WishlistRepository wishlistRepository;
+
     private Logger log = Logger.getLogger(PresentLoader.class);
 
     @Autowired
@@ -28,12 +30,15 @@ public class PresentLoader implements ApplicationListener<ContextRefreshedEvent>
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         Present xboxOne = new Present();
-        xboxOne.setDescription("Xbox One");
+        xboxOne.setName("Xbox One");
+        xboxOne.setDescription("Gaming console");
         xboxOne.setPrice(new BigDecimal("399.99"));
-        xboxOne.setId(209384302);
         presentRepository.save(xboxOne);
 
-        log.info("Saved Xbox One Id: " + xboxOne.getId());
+        logPresent(xboxOne);
     }
 
+    private void logPresent(Present present) {
+        log.info("Saved " + present.getName() + " (id: " + present.getId() + ")");
+    }
 }

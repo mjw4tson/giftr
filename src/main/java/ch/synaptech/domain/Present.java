@@ -1,7 +1,10 @@
 package ch.synaptech.domain;
 
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Set;
 
 /**
  * Created by mwatson on 11/28/2015.
@@ -15,10 +18,28 @@ public class Present {
     @Version
     private Integer version;
 
-    private String presentId;
+    private String name;
     private String description;
-    private String imageUrl;
+    private String itemUrl;
     private BigDecimal price;
+    private Integer priority;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User presentOwner;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    private User purchaser;
+
+    @ManyToMany(mappedBy = "presents")
+    private Set<Wishlist> wishlists;
+
+    public User getPurchaser() {
+        return purchaser;
+    }
+
+    public void setPurchaser(User purchaser) {
+        this.purchaser = purchaser;
+    }
 
     public BigDecimal getPrice() {
         return price;
@@ -28,12 +49,12 @@ public class Present {
         this.price = price;
     }
 
-    public String getPresentId() {
-        return presentId;
+    public String getName() {
+        return name;
     }
 
-    public void setPresentId(String presentId) {
-        this.presentId = presentId;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -44,12 +65,12 @@ public class Present {
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getItemUrl() {
+        return itemUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setItemUrl(String itemUrl) {
+        this.itemUrl = itemUrl;
     }
 
     public Integer getVersion() {
@@ -66,5 +87,13 @@ public class Present {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
     }
 }

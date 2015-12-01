@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Xmas Listr</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(presents)}">
+        <h2>Present List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Purchase</th>
+            </tr>
+            <tr th:each="present : ${presents}">
+                <td th:text="${present.id}"><a href="/present/${present.id}">Id</a></td>
+                <td th:text="${present.name}">Name</td>
+                <td th:text="${present.description}">Description</td>
+                <td th:text="${present.price}">Price</td>
+                <td><a th:href="${'/present/' + present.id}">View</a></td>
+                <td><a th:href="${'/present/edit/' + present.id}">Edit</a></td>
+                <td><a th:href="${'/present/delete/' + present.id}">Delete</a></td>
+                <td><a th:href="${'/present/purchase/' + present.id}">Purchase</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
